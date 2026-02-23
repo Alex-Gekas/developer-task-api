@@ -1,3 +1,5 @@
+This repository contains a sample Task Management API used to demonstrate professional developer documentation workflows, including onboarding guides, authentication tutorials, API reference material, and troubleshooting documentation.
+
 # Task API
 
 A production-style REST API for managing tasks with JWT authentication, built with Node.js, Express, and SQLite.
@@ -52,6 +54,18 @@ npm start       # standard start
 
 The server starts at `http://localhost:3000`.
 
+## Documentation
+
+Full developer documentation is available in the `/docs` folder.
+
+Start here:
+
+- docs/index.md — documentation overview
+- docs/getting-started.md — onboarding guide
+- docs/authentication-guide.md — JWT walkthrough
+- docs/api-reference.md — full endpoint documentation
+- docs/troubleshooting.md — common problems and fixes
+
 ## Endpoints
 
 | Method | Path                  | Auth Required | Description         |
@@ -82,3 +96,5 @@ Authorization: Bearer <your_token_here>
 | status        | string | `pending`, `in_progress`, `completed` | No     |
 | priority      | string | `low`, `medium`, `high`             | No       |
 | due_date      | string | ISO date, e.g. `2024-12-31`         | No       |
+
+This project was tested using real HTTP requests via Postman and documented using a docs-as-code workflow.
