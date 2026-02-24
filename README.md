@@ -102,4 +102,10 @@ Authorization: Bearer <your_token_here>
 | priority      | string | `low`, `medium`, `high`             | No       |
 | due_date      | string | ISO date, e.g. `2024-12-31`         | No       |
 
-This project was tested using real HTTP requests via Postman and documented using a docs-as-code workflow.
+## Documentation Scope
+
+This repository includes a working Task Management API used to demonstrate professional developer documentation practices.
+
+The focus of this project is the documentation system, including onboarding guides, authentication walkthroughs, endpoint reference material, and troubleshooting documentation.
+
+The API endpoints were tested using real HTTP requests via Postman and documented using a docs-as-code workflow.
