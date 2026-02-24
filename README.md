@@ -2,12 +2,14 @@
 
 A production-style REST API for managing tasks with JWT authentication, built with Node.js, Express, and SQLite.
 
-This repository demonstrates professional developer documentation workflows, including:
+This repository demonstrates professional developer documentation written and validated against a functioning REST API.
 
-- onboarding guides
-- authentication tutorials
-- endpoint reference documentation
-- troubleshooting documentation
+## What this repository demonstrates
+
+- Documenting a functioning REST API
+- Testing endpoints using Postman
+- Designing developer onboarding workflows
+- Structuring documentation using docs-as-code practices
 
 ## Features
 - User signup and login with hashed passwords
@@ -71,6 +73,14 @@ Start here:
 - docs/api-reference.md — full endpoint documentation
 - docs/troubleshooting.md — common problems and fixes
 
+## Documentation Scope
+
+This repository includes a working Task Management API used to demonstrate professional developer documentation practices.
+
+The focus of this project is the documentation system, including onboarding guides, authentication walkthroughs, endpoint reference material, and troubleshooting documentation.
+
+The API endpoints were tested using real HTTP requests via Postman and documented using a docs-as-code workflow.
+
 ## Endpoints
 
 | Method | Path                  | Auth Required | Description         |
@@ -102,10 +112,3 @@ Authorization: Bearer <your_token_here>
 | priority      | string | `low`, `medium`, `high`             | No       |
 | due_date      | string | ISO date, e.g. `2024-12-31`         | No       |
 
-## Documentation Scope
-
-This repository includes a working Task Management API used to demonstrate professional developer documentation practices.
-
-The focus of this project is the documentation system, including onboarding guides, authentication walkthroughs, endpoint reference material, and troubleshooting documentation.
-
-The API endpoints were tested using real HTTP requests via Postman and documented using a docs-as-code workflow.
