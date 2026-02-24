@@ -1,8 +1,13 @@
-This repository contains a sample Task Management API used to demonstrate professional developer documentation workflows, including onboarding guides, authentication tutorials, API reference material, and troubleshooting documentation.
-
 # Task API
 
 A production-style REST API for managing tasks with JWT authentication, built with Node.js, Express, and SQLite.
+
+This repository demonstrates professional developer documentation workflows, including:
+
+- onboarding guides
+- authentication tutorials
+- endpoint reference documentation
+- troubleshooting documentation
 
 ## Features
 - User signup and login with hashed passwords
