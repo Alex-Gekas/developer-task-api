@@ -1,8 +1,6 @@
 # Task API
 
-A production-style REST API for managing tasks with JWT authentication, built with Node.js, Express, and SQLite.
-
-This repository demonstrates professional developer documentation written and validated against a functioning REST API.
+A production-style REST API for managing tasks with JWT authentication, built with Node.js, Express, and SQLite, used here to demonstrate professional developer documentation workflows.
 
 ## What this repository demonstrates
 
@@ -11,7 +9,8 @@ This repository demonstrates professional developer documentation written and va
 - Designing developer onboarding workflows
 - Structuring documentation using docs-as-code practices
 
-## Features
+## API Capabilities
+
 - User signup and login with hashed passwords
 - JWT-based authentication on all task endpoints
 - Full task CRUD: create, read, update, delete
