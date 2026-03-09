@@ -1,0 +1,417 @@
+{
+  "info": {
+    "_postman_id": "d0de22df-6d69-42bd-b0f1-98b9414a8c36",
+    "name": "Task API",
+    "description": "A production-style REST API for managing tasks with JWT authentication.\n\n## Authentication\nMost endpoints require JWT Bearer token authentication. First use the **Signup** or **Login** endpoints to obtain a token, then set the `token` variable or include the token in the Authorization header.\n\n## Base URL\nDefault: `http://localhost:3000`",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "id": "bc2a8820-f56c-47b7-a7ba-8c73bb52c5f5",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "health"
+              ]
+            },
+            "description": "Verify the server is up and running.\n\n**Response:**\n- `status`: \"ok\"\n- `timestamp`: ISO 8601 timestamp"
+          },
+          "response": []
+        }
+      ],
+      "id": "b95669f2-eb43-482d-8a3d-8f4526a28c8a",
+      "description": "Health check endpoint for verifying server availability."
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Signup",
+          "id": "8fd5735b-bee7-4999-8a8b-8ce634370b2b",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/signup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "signup"
+              ]
+            },
+            "description": "Create a new user account.\n\n**Request Body:**\n- `name` (required): User's display name\n- `email` (required): User's email address\n- `password` (required): Password (minimum 8 characters)\n\n**Response (201):**\n- `message`: Success message\n- `token`: JWT token for authentication\n- `user`: Object with id, name, email\n\n**Errors:**\n- 400: Missing required fields or password too short\n- 409: Email already exists"
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "id": "1d748231-4b3b-464e-af40-da16f8b0a723",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Authenticate and receive a JWT token.\n\n**Request Body:**\n- `email` (required): User's email address\n- `password` (required): User's password\n\n**Response (200):**\n- `message`: Success message\n- `token`: JWT token for authentication\n- `user`: Object with id, name, email\n\n**Errors:**\n- 400: Missing email or password\n- 401: Invalid credentials"
+          },
+          "response": []
+        },
+        {
+          "name": "http://18.222.36.151:3000/api/auth/login",
+          "id": "b75e21c0-9ba0-4f02-aba1-624aa040b470",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"user@example.com\",\r\n  \"password\": \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://18.222.36.151:3000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "18",
+                "222",
+                "36",
+                "151"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Login to receive token\r\n"
+          },
+          "response": []
+        }
+      ],
+      "id": "f53a46aa-258a-4ed0-bd1f-050fe143d19d",
+      "description": "Authentication endpoints for user signup and login. These endpoints return JWT tokens used to authenticate subsequent requests."
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "List Tasks",
+          "id": "685ed22f-10e1-4b52-9a2b-f8e3ee28c293",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/tasks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tasks"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "pending",
+                  "description": "Filter by status: pending, in_progress, completed",
+                  "disabled": true
+                },
+                {
+                  "key": "priority",
+                  "value": "high",
+                  "description": "Filter by priority: low, medium, high",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Get all tasks for the authenticated user.\n\n**Query Parameters (optional):**\n- `status`: Filter by status (pending, in_progress, completed)\n- `priority`: Filter by priority (low, medium, high)\n\n**Response (200):**\n- `count`: Number of tasks returned\n- `tasks`: Array of task objects\n\n**Requires:** Bearer token authentication"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Task",
+          "id": "bfbbb4bb-ef25-4e03-b7ff-6d05ea6fbe13",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/tasks/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tasks",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "Task UUID"
+                }
+              ]
+            },
+            "description": "Get a single task by ID.\n\n**Path Parameters:**\n- `id`: Task UUID\n\n**Response (200):**\n- `task`: Task object\n\n**Errors:**\n- 404: Task not found\n\n**Requires:** Bearer token authentication"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Task",
+          "id": "a4345311-f4c4-4f81-9e2a-4b2a37b3a452",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": ,\n  \"description\": \"Write comprehensive API documentation\",\n  \"status\": \"pending\",\n  \"priority\": \"high\",\n  \"due_date\": \"2024-12-31\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tasks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tasks"
+              ]
+            },
+            "description": "Create a new task.\n\n**Request Body:**\n- `title` (required): Task title\n- `description` (optional): Task description\n- `status` (optional): pending (default), in_progress, completed\n- `priority` (optional): low, medium (default), high\n- `due_date` (optional): Due date string\n\n**Response (201):**\n- `message`: Success message\n- `task`: Created task object\n\n**Errors:**\n- 400: Missing title or invalid status/priority\n\n**Requires:** Bearer token authentication"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Task",
+          "id": "46940432-e331-432d-a7b8-c21cf994cfd6",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"in_progress\",\n  \"priority\": \"medium\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tasks/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tasks",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "Task UUID"
+                }
+              ]
+            },
+            "description": "Update an existing task (partial update).\n\n**Path Parameters:**\n- `id`: Task UUID\n\n**Request Body (all optional):**\n- `title`: New task title\n- `description`: New description\n- `status`: pending, in_progress, completed\n- `priority`: low, medium, high\n- `due_date`: New due date\n\n**Response (200):**\n- `message`: Success message\n- `task`: Updated task object\n\n**Errors:**\n- 400: Invalid status/priority\n- 404: Task not found\n\n**Requires:** Bearer token authentication"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Task",
+          "id": "25b4b242-e4fe-4b62-87db-d79814dc044c",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/tasks/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tasks",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "Task UUID"
+                }
+              ]
+            },
+            "description": "Delete a task.\n\n**Path Parameters:**\n- `id`: Task UUID\n\n**Response (200):**\n- `message`: \"Task deleted.\"\n\n**Errors:**\n- 404: Task not found\n\n**Requires:** Bearer token authentication"
+          },
+          "response": []
+        }
+      ],
+      "id": "d575272b-597d-4726-b523-9ae654fcacd6",
+      "description": "Task management endpoints. All endpoints in this folder require JWT Bearer token authentication."
+    },
+    {
+      "name": "http://18.222.36.151:3000/api/tasks",
+      "id": "cc989b6b-8c56-4ba9-b729-7c1e2a70e7f5",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBiMTI0N2I5LWUyYzEtNDVhNS05MGFkLTU0OWQwZjE1MGU5NCIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTc3MjU3NDU0MiwiZXhwIjoxNzczMTc5MzQyfQ.qBUIBD9Qirey3xzbFBunx9oqhL22zxncXxe5k1ghWoY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"My first task\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://18.222.36.151:3000/api/tasks",
+          "protocol": "http",
+          "host": [
+            "18",
+            "222",
+            "36",
+            "151"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        },
+        "description": "Create a task"
+      },
+      "response": []
+    },
+    {
+      "name": "http://18.222.36.151:3000/api/tasks",
+      "id": "16d5309c-66b5-42e7-88cd-e8886d0f7074",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBiMTI0N2I5LWUyYzEtNDVhNS05MGFkLTU0OWQwZjE1MGU5NCIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTc3MjU3NDU0MiwiZXhwIjoxNzczMTc5MzQyfQ.qBUIBD9Qirey3xzbFBunx9oqhL22zxncXxe5k1ghWoY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://18.222.36.151:3000/api/tasks",
+          "protocol": "http",
+          "host": [
+            "18",
+            "222",
+            "36",
+            "151"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        },
+        "description": "verify the task"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "c189eabf-7f21-4de3-b585-530aab7fb000",
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "id": "0792f0ab-f579-4f52-b751-e304d8848c57",
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
