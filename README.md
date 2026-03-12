@@ -11,7 +11,7 @@ material, and troubleshooting documentation.
 Full documentation: see the `/docs` directory.
 
 Start with:  
-➡ **docs/index.md — Developer documentation entry point**
+➡ **[docs/index.md](docs/index.md) — Developer documentation entry point**
 
 ## What this repository demonstrates
 
@@ -55,9 +55,9 @@ task-api/
 Create a task:
 
 ```bash
-curl -X POST http://localhost:3000/api/tasks \
-  -H "Authorization: Bearer <token>" \
-  -H "Content-Type: application/json" \
+curl -X POST http://localhost:3000/api/tasks 
+  -H "Authorization: Bearer <token>" 
+  -H "Content-Type: application/json" 
   -d '{
     "title": "Write documentation",
     "priority": "high"
