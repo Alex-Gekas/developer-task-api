@@ -1,6 +1,17 @@
 # Task API
 
-A production-style REST API for managing tasks with JWT authentication, built with Node.js, Express, and SQLite, used here to demonstrate professional developer documentation workflows.
+A production-style REST API for managing tasks with JWT authentication.
+
+## Project purpose
+
+This project was created as part of a technical writing portfolio to demonstrate
+documentation for a working REST API, including onboarding guides, reference
+material, and troubleshooting documentation.
+
+Full documentation: see the `/docs` directory.
+
+Start with:  
+➡ **docs/index.md — Developer documentation entry point**
 
 ## What this repository demonstrates
 
@@ -9,7 +20,7 @@ A production-style REST API for managing tasks with JWT authentication, built wi
 - Designing developer onboarding workflows
 - Structuring documentation using docs-as-code practices
 
-## API Capabilities
+## API capabilities
 
 - User signup and login with hashed passwords
 - JWT-based authentication on all task endpoints
@@ -17,7 +28,7 @@ A production-style REST API for managing tasks with JWT authentication, built wi
 - Filter tasks by status or priority
 - Centralized error handling
 
-## Project Structure
+## Project structure
 
 ```
 task-api/
@@ -38,6 +49,20 @@ task-api/
 ├── .gitignore
 └── package.json
 ```
+
+## Example request
+
+Create a task:
+
+```bash
+curl -X POST http://localhost:3000/api/tasks \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Write documentation",
+    "priority": "high"
+  }'
+  ```
 
 ## Quick Start
 
@@ -74,7 +99,7 @@ Start here:
 
 ## Documentation Scope
 
-This repository includes a working Task Management API used to demonstrate professional developer documentation practices.
+This repository includes a working task management API used to demonstrate professional developer documentation practices.
 
 The focus of this project is the documentation system, including onboarding guides, authentication walkthroughs, endpoint reference material, and troubleshooting documentation.
 
@@ -111,3 +136,10 @@ Authorization: Bearer <your_token_here>
 | priority      | string | `low`, `medium`, `high`             | No       |
 | due_date      | string | ISO date, e.g. `2024-12-31`         | No       |
 
+## License
+
+MIT License — see the LICENSE file for details.
+
+![Node.js](https://img.shields.io/badge/node.js-18-green)
+![Docs](https://img.shields.io/badge/docs-markdown-blue)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)

@@ -7,7 +7,7 @@ Before sending requests, create an account and obtain a token.
 
 For instructions, see the [Authentication Guide](link).
 
-The `/api/auth` and `/health` endpoints are public and do not require authentication.
+The `/api/auth` and `/health` endpoints are public and don't require authentication.
 
 ## Base URL
 
@@ -43,7 +43,7 @@ Creates a new user account and returns a JWT token.
 }
 ```
 
-**Example response — 201 Created:**
+**Example response—201 Created:**
 
 ```json
 {
@@ -88,7 +88,7 @@ Authenticates a user and returns a JWT token.
 }
 ```
 
-**Example response — 200 OK:**
+**Example response—200 OK:**
 
 ```json
 {
@@ -117,7 +117,7 @@ Returns the server status. Use this endpoint to verify the server is running.
 
 **Authentication required:** No
 
-**Example response — 200 OK:**
+**Example response—200 OK:**
 
 ```json
 {
@@ -155,7 +155,7 @@ Returns all tasks belonging to the authenticated user, ordered by creation date 
 GET /api/tasks?status=pending&priority=high
 ```
 
-**Example response — 200 OK:**
+**Example response—200 OK:**
 
 
 ```json
@@ -213,7 +213,7 @@ Creates a new task for the authenticated user.
 }
 ```
 
-**Example response — 201 Created:**
+**Example response—201 Created:**
 
 ```json
 {
@@ -258,7 +258,7 @@ Returns a single task by ID. The task must belong to the authenticated user.
 ```
 GET /api/tasks/dc189961-2875-4220-823e-bee426e62242
 ```
-**Example response — 200 OK:**
+**Example response—200 OK:**
 
 ```json
 {
@@ -317,7 +317,7 @@ Partially updates a task. Only the fields included in the request body are updat
 }
 ```
 
-**Example response — 200 OK:**
+**Example response—200 OK:**
 
 ```json
 {
@@ -364,7 +364,7 @@ Permanently deletes a task. The task must belong to the authenticated user. This
 DELETE /api/tasks/dc189961-2875-4220-823e-bee426e62242
 ```
 
-**Example response — 200 OK:**
+**Example response—200 OK:**
 
 ```json
 {

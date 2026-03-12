@@ -4,11 +4,9 @@ Before you can authenticate using the Task API, you need to log in. See the [API
 
 ## JWT and why it’s used
 
-**JWT (JSON Web Token)** is a standard for encoding user information in a token. You can think of it like a wristband at an amusement park.
+**JWT (JSON Web Token)** is a standard for encoding user information in a token. You can think of it like a wristband at an amusement park. When you enter the park, the attendant takes your payment (login) and gives you a wristband (the token). The wristband proves you were verified. For the rest of the day, you show it to enter different areas of the park.
 
-When you enter the park, the attendant takes your payment (login) and gives you a wristband (the token). The wristband proves you were verified. For the rest of the day, you show it to enter different areas of the park.
-
-A JWT works the same way. It is a long string of characters that contains information about your user session. The API issues a JWT when you log in. The token stays valid for seven days.
+A JWT works the same way. It's a long string of characters that contains information about your user session. The API issues a JWT when you log in. The token stays valid for seven days.
 
 The token payload is **base64 encoded**, not encrypted. Anyone can decode it and read the contents.
 
@@ -27,10 +25,10 @@ Include the token in the Authorization header of every request in this format: `
 
 **Token expiry and invalid tokens**
 
-If the token is invalid, you will receive a `401 InvalidToken` error. If the token is expired, you will receive a `401 TokenExpired` error. In both cases, you can log in again to generate a new one. There is no refresh mechanism in the Task API for expired tokens.
+If the token is invalid, you receive a `401 InvalidToken` error. If the token is expired, you receive a `401 TokenExpired` error. In both cases, you can log in again to generate a new one. There is no refresh mechanism in the Task API for expired tokens.
 
  **Security note:** never store tokens in plain text or expose them in client-side code.  
 
 **Invalid credentials**
 
-For requests that use the wrong email or password, you will receive `401 InvalidCredentials` error.Task API does not indicate which credential was incorrect. If this happens, check both and try again.
+For requests that use the wrong email or password, you receive a `401 InvalidCredentials` error. Task API doesn't indicate which credential was incorrect. If this happens, check both and try again.

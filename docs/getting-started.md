@@ -1,6 +1,6 @@
-## Getting Started
+## Getting started
 
-## What This Guide Covers
+## What this guide covers
 
 This guide walks through the basic workflow of using the Task API:
 
@@ -49,9 +49,9 @@ The API hashes your password and creates a new user record. If the request is su
 }
 ```
 
-Keep your token – you need it to make requests in the following steps.
+Keep your token–you need it to make requests in the following steps.
 
-## Step 2 – Log in and receive a token
+## Step 2–Log in and receive a token
 
 Send a POST request to `POST /api/auth/login` to generate and receive a token:
 
@@ -82,7 +82,7 @@ The server verifies the password. If valid, a JWT token is generated and appears
 
 Save this token. It is required for all protected routes.
 
-## Step 3 – Create your first task
+## Step 3–Create your first task
 
 Send a POST request to `POST /api/tasks`
 
@@ -128,7 +128,7 @@ Authorization: Bearer <your_token_here>
 }
 ```
 
-## Step 4 - Verify the task Was created
+## Step 4-Verify the task was created
 
 Send a GET request to `GET /api/tasks` with the same Authorization header you used in the previous step.
 
@@ -155,7 +155,7 @@ You should see a list of tasks associated with your user ID:
 
 If the request succeeds, the API returns your task list. This confirms that authentication and task creation are working correctly.
 
-## Where to Go Next
+## Where to go next
 
 Now that you have created and retrieved a task, you can explore:
 

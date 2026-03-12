@@ -12,7 +12,7 @@ Before installing Task API, make sure your environment includes:
 * A Linux server or cloud instance (Ubuntu 20.04 or later recommended)
 * SSH access to the server
 * Git
-* A domain name or static IP address (for production access)
+* A domain name or static external IP address (for production access)
 
 
 # Step 1: Prepare the server
@@ -23,7 +23,7 @@ SSH into your server:
 ssh your-user@your-server-ip
 ```
 
-If Node.js is not installed, install it using your preferred method. Many server administrators use **nvm** to manage Node versions.
+If Node.js isn't installed, install it using your preferred method. Many server administrators use **nvm** to manage Node versions.
 
 Verify the installation:
 
@@ -100,7 +100,7 @@ Update the configuration values.
 
 > [!IMPORTANT]
 > In production, generate a strong random value for `JWT_SECRET`.
-> Do not commit this value to version control.
+> Don't commit this value to version control.
 
 Run:
 
@@ -140,12 +140,13 @@ Expected response:
 This confirms the API is running and responding to requests.
 
 # Step 7: Run the API with PM2 (recommended)
-[!TIP]
-For production environments, use a **process manager** to keep the API running if the application crashes or the server restarts.
 
-**PM2** manages the Node.js process in the background. It automatically restarts the application if it stops unexpectedly.
+> [!TIP]
+> For production environments, use a **process manager** to keep the API running if the app crashes or the server restarts.
 
-In many production deployments, a Node.js application typically runs behind a reverse proxy, like Nginx. PM2 is responsible for keeping the Node process alive and ensuring it runs smoothly.
+**PM2** manages the Node.js process in the background. It automatically restarts the app if it stops unexpectedly.
+
+In many production deployments, a Node.js app typically runs behind a reverse proxy, like Nginx. PM2 is responsible for keeping the Node process alive and ensuring it runs smoothly.
 
 Install PM2 globally:
 

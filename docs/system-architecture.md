@@ -1,6 +1,6 @@
-## Architecture Overview
+## Architecture overview
 
-The Task API is a stateless RESTful service built with Express. Authentication uses JSON Web Tokens (JWT). User credentials are stored securely using bcrypt. Task data is stored in a SQLite database. The application is organized into modules. Each module handles part of the request lifecycle.
+The Task API is a stateless RESTful service built with Express. Authentication uses JSON Web Tokens (JWT). User credentials are stored securely using `bcrypt`. Task data is stored in a SQLite database. The app is organized into modules. Each module handles part of the request lifecycle.
 
 The API follows a typical REST architecture: requests pass through routing and authentication middleware before reaching controllers that handle business logic and database access.
 
@@ -23,17 +23,17 @@ The Task API allows users to create and manage personal task lists. Each user ha
 
 ## Design considerations
 
-- SQLite was chosen because it is lightweight and easy to set up for a small application. It does not require a separate database server.
+- SQLite was chosen because it's lightweight and easy to set up for a small application. It doesn't require a separate database server.
 
-- JWT authentication allows the server to verify users without storing session data. Because the server does not store session data, it can handle requests independently.
+- JWT authentication allows the server to verify users without storing session data. Because the server doesn't store session data, it can handle requests independently.
 
-- Passwords are hashed with bcrypt before being saved, so the original password is never stored in the database.
+- Passwords are hashed with `bcrypt` before being saved, so the original password is never stored in the database.
 
 - The code is organized into routes, controllers, and middleware so that each part of the system has a clear responsibility and can be tested independently.
 
 ## Folder structure
 
-The project uses modular directories to separate routing, business logic, middleware, and database access. This structure keeps each part of the application focused on a single responsibility and makes the code easier to maintain and test.
+The project uses modular directories to separate routing, business logic, middleware, and database access. This structure keeps each part of the app focused on a single responsibility and makes the code easier to maintain and test.
 
 ```
 developer-task-api/
@@ -84,7 +84,7 @@ The `users` table stores account information required for authentication and ide
 | `updated_at` | TEXT   | Yes | Timestamp of the most recent update |
 
 
-## High-Level Architecture
+## High-level architecture
 
 The following diagram shows how requests move through the API and how the server interacts with the database.
 
@@ -120,7 +120,7 @@ sequenceDiagram
     API-->>Client: Protected resource
 ```
 
-## Request Lifecycle
+## Request lifecycle
 
 1. A client sends an HTTP request to the Express server.
 

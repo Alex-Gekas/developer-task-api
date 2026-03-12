@@ -13,9 +13,9 @@ If you're new to the Task API:
 
 ## Documentation
 
-- [Setup Guide](setup.md) — install and configure the API locally  
-- [Developer Quickstart](quickstart.md) — create your first user and task  
-- [API Reference](api-reference.md) — full list of endpoints and request formats
+- [Setup Guide](setup.md): install and configure the API locally  
+- [Getting Started](getting-started.md): create your first user and task  
+- [API Reference](api-reference.md): full list of endpoints and request formats
 
 ## Base URL
 
@@ -34,7 +34,7 @@ Production example
 - Create tasks  
 - Retrieve and manage task lists
 
-## Task API Workflow
+## Task API workflow
 
 ```mermaid
 flowchart LR
@@ -52,19 +52,19 @@ flowchart LR
 
 ## Who this documentation is for
 
-This documentation is for developers using the Task API as a backend for to-do applications. It covers authentication and CRUD endpoints to help build a frontend without starting the backend from scratch. It also serves as a guide for those wanting to learn about authenticated REST APIs. Developers will see how JWT authentication, password hashing, and protected routes work together in a real Node.js application.
+This documentation is for developers using the Task API as a backend for to-do apps. It covers authentication and CRUD endpoints to help build a frontend without starting the backend from scratch. It also serves as a guide for those wanting to learn about authenticated REST APIs. Developers can see how JWT authentication, password hashing, and protected routes work together in a real Node.js application.
 
 ## What's in this documentation
 
 The following sections help you get up and running with the Task API:
 
-- [Setup](setup.md) — how to deploy the API on a server  
-- [Getting Started](quickstart.md) — create an account and make your first request  
-- [Authentication](authentication.md) — how JWT authentication works in this API  
-- [API Reference](api-reference.md) — all endpoints with request and response examples  
-- [System Architecture](architecture.md) — how the components fit together  
-- [Troubleshooting](troubleshooting.md) — common errors and how to fix them
+- [Setup](setup.md): how to deploy the API on a server  
+- [Getting Started](getting-started.md): create an account and make your first request  
+- [Authentication Guide](authentication-guide.md): how JWT authentication works in this API  
+- [API Reference](api-reference.md): all endpoints with request and response examples  
+- [System Architecture](system-architecture.md): how the components fit together  
+- [Troubleshooting](troubleshooting.md): common errors and how to fix them
 
 ## Start here
 
-If the Task API is not yet installed, see [Setup](setup.md) before continuing.
+If the Task API isn't installed yet, see [Setup](setup.md) before continuing.
