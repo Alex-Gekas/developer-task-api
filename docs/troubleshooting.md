@@ -13,9 +13,7 @@ This section describes common errors that can occur when installing the Task API
 - **Option A: Install the required Windows build tools**
 Use this option if you want your system to compile native Node.js modules correctly. This ensures data integrity and performance.
 - **Option B: Replace `better-sqlite3` with `sql.js`** 
-Use this option to avoid native compilation by using a pure JavaScript SQLite implementation.
-
-However, your environment will still lack native-build tools, which may cause problems with other packages later. Use this option only for development or portfolio projects.
+Use this option to avoid native compilation by using a pure JavaScript SQLite implementation. However, your environment will still lack native-build tools, which may cause problems with other packages later. Use this option only for development or portfolio projects.
 
 ### **Server won't start – Cannot find module**
 
