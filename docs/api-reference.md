@@ -5,7 +5,7 @@ This section documents all available endpoints in the Task API.
 All requests to `/api/tasks` endpoints require a JSON Web Token (JWT).  
 Before sending requests, create an account and obtain a token.
 
-For instructions, see the [Authentication Guide](link).
+For instructions, see the [Authentication Guide](authentication-guide.md).
 
 The `/api/auth` and `/health` endpoints are public and don't require authentication.
 

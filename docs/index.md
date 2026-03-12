@@ -9,7 +9,7 @@ The Task API is a REST API for managing task lists. It uses JWT authentication t
 If you're new to the Task API:
 
 1. Install and run the API locally → [Setup Guide](setup.md)  
-2. Make your first request → [Developer Quickstart](quickstart.md)
+2. Make your first request → [Developer Quickstart](getting-started.md)
 
 ## Documentation
 
